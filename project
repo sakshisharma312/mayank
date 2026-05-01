@@ -92,7 +92,7 @@
     <div id="hearts-container"></div>
 
     <div class="container" id="content">
-        <h1 id="question">Mayank, can you be my boyfriend?</h1>
+        <h1 id="question">Mayank, Will you be my boyfriend?</h1>
         <div class="buttons">
             <button id="yesBtn" onclick="onYes()">Yes</button>
             <button id="noBtn" onclick="onNo()">No</button>
