@@ -31,8 +31,9 @@
 
         h1 {
             color: #d63384;
-            font-size: 1.7rem;
+            font-size: 1.5rem;
             margin-bottom: 25px;
+            line-height: 1.4;
         }
 
         .buttons {
@@ -76,15 +77,6 @@
             0% { transform: translateY(100vh); opacity: 1; }
             100% { transform: translateY(-10vh); opacity: 0; }
         }
-
-        .final-msg {
-            animation: fadeIn 0.8s ease-in;
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: scale(0.9); }
-            to { opacity: 1; transform: scale(1); }
-        }
     </style>
 </head>
 <body>
@@ -92,10 +84,12 @@
     <div id="hearts-container"></div>
 
     <div class="container" id="content">
-        <h1 id="question">Mayank, Will you be my boyfriend?</h1>
+        <!-- THE QUESTION SECTION -->
+        <h1 id="question">Mayank, you wanted a label, right?<br><br>So... Will you be my boyfriend?</h1>
+        
         <div class="buttons">
-            <button id="yesBtn" onclick="onYes()">Yes</button>
-            <button id="noBtn" onclick="onNo()">No</button>
+            <button id="yesBtn" onclick="onYes()">Yes! 😍</button>
+            <button id="noBtn" onclick="onNo()">No 🤨</button>
         </div>
     </div>
 
@@ -118,7 +112,10 @@
             const question = document.getElementById('question');
             const yesBtn = document.getElementById('yesBtn');
             
-            question.innerText = "Try again! 😉";
+            // Funny "No" responses
+            if(clickCount == 1) question.innerText = "Try again, Mayank! 😉";
+            if(clickCount == 2) question.innerText = "Are you sure? Think again... 🙄";
+            if(clickCount >= 3) question.innerText = "Wrong button! The 'Yes' button is right there. 👉";
             
             let newSize = 1 + (clickCount * 0.4);
             yesBtn.style.transform = `scale(${newSize})`;
@@ -129,9 +126,11 @@
 
         function onYes() {
             document.getElementById('content').innerHTML = `
-                <div class="final-msg">
+                <div style="animation: fadeIn 0.8s ease-in;">
                     <h1 style="color: #ff4d6d;">Congratulations! 🎉</h1>
-                    <p style="font-size: 1.2rem; color: #333; line-height: 1.5;">Now you have someone to annoy you! Hehe ❤️</p>
+                    <p style="font-size: 1.2rem; color: #333; line-height: 1.5;">
+                        Now you have someone to annoy you! Hehe ❤️
+                    </p>
                     <h2 style="color: #d63384; margin-top: 20px;">- Sakshi</h2>
                 </div>
             `;
@@ -139,4 +138,4 @@
         }
     </script>
 </body>
-</html>f
+</html>
